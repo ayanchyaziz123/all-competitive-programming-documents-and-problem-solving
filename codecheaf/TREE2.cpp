@@ -8,6 +8,7 @@ int main()
     while (t--)
     {
         /* code */
+        liza
     }
     
 
