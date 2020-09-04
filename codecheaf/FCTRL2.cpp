@@ -1,20 +1,20 @@
-#include <bits/stdc++.h>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <iostream>
+using boost::multiprecision::cpp_int;
 using namespace std;
 
-int factorial(int n)
-{
-    return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
-}
-int main()
-{
-    int t;
-    cin>>t;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        cout << factorial(n) << endl;
-    }
-
-    return 0;
+int main() {
+   int t;
+     cpp_int fact=1;
+   cin>>t;
+   while(t--){
+       int n;
+     fact=1;
+       cin>>n;
+       for(int i=1;i<=n;i++){
+       fact=fact*i;    
+       }
+       cout<<fact<<endl;
+   }
+	return 0;
 }
