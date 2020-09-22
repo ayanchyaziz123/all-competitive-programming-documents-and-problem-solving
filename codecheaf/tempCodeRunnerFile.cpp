@@ -1,20 +1,8 @@
-#include <bits/stdc++.h>
-using namespace std;
 
-int factorial(int n)
-{
-    return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
-}
-int main()
-{
-    int t;
-    cin>>t;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        cout << factorial(n) << endl;
-    }
+        ll min = INT_MAX;
 
-    return 0;
-}
+        for (ll i = 0; i < v2.size(); i++)
+        {
+
+            if (arr[v2[i]] > max)
+            {
