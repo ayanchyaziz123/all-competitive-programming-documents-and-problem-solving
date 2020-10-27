@@ -1,4 +1,5 @@
-
+import sys
+from collections import Counter
 thisdict = {
   "apple": ["green", "Yellow"],
   "banana": ["yellow", "red"],
@@ -9,9 +10,11 @@ thisdict = {
 #L = ["apple", "cherry"]
 #for i in thisdict.keys():
 #  if i  in L:
-#    print(i)
+#
+#S = ["apple", "banana", "apple"]
+#c = Counter(S)
+#print(c)
 
-S = {"apple", "banana", "apple"}
-for i in   S:
-  print(S)
-  x =    10 
+S = [[1,2,3],
+    [4,5,6]]
+print(S)      

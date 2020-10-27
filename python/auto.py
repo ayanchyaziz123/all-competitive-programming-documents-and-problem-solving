@@ -1,10 +1,10 @@
 import pyautogui
 import time
-message  = 100
+message  = 1
 
 while message > 0:
-    time.sleep(4)
-    pyautogui.typewrite("I need you and I Love you you mera janI need you and I Love you you mera jan")
+    time.sleep(1)
+    pyautogui.typewrite("Nice")
     time.sleep(2)
     pyautogui.press('enter')
     message -= 1
