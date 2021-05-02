@@ -10,11 +10,11 @@ int main()
     cin >> t;
     while (t--)
     {
-        vector<ll>v;
+        vector<ll> v;
         for (ll i = 0; i < 3; i++)
         {
             ll ple;
-            cin>>ple;
+            cin >> ple;
             v.push_back(ple);
         }
 
