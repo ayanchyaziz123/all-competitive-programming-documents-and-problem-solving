@@ -1,87 +1,107 @@
-vector<int> graph[100000];
-int visit[100000], dist[100000], parent[100000];
-vector<int> lv[10000];
-void BFS(int source)
-{
-    queue<int> q;
-    q.push(source);
-    visit[source] = 1;
-    while (!q.empty())
-    {
-        int ft = q.front();
-        q.pop();
-        for (int i = 0; i < graph[ft].size(); i++)
-        {
-            int child = graph[ft][i];
-            if (!visit[child])
-            {
-                visit[child] = 1;
-                parent[child] = ft;
-                dist[child] = dist[ft] + 1;
-                q.push(child);
-            }
-        }
-    }
-}
-void print_path(int node, int source)
-{
-    vector<int> path;
-    while (node != source)
-    {
-        path.push_back(node);
-        node = parent[node];
-    }
-    path.push_back(source);
-    reverse(path.begin(), path.end());
-    for (int i = 0; i < path.size(); i++)
-        cout << path[i] << " ";
-    cout << endl;
-}
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
 int main()
 {
-
-    freopen("output.txt", "w", stdout);
-    int nodes, edges;
-    cin >> nodes >> edges;
-    for (int i = 0; i < edges; i++)
+    int t;
+    scanf("%d", &t);
+    while (t--)
     {
-        int a, b;
-        cin >> a >> b;
-        graph[a].push_back(b);
-        graph[b].push_back(a);
-    }
-    int source;
-    cin >> source;
-    BFS(source);
-    lv[1].push_back(source);
-    for (int i = 0; i < nodes; i++)
-    {
-        if (source == i)
-            continue;
-        if (dist[i] == 0)
+        int n, m;
+        scanf("%d%d", &n, &m);
+        int a[n];
+        int l[n];
+        int r[n];
+        int temposl = -1;
+        int temposr = -1;
+        int posl[n];
+        int posr[n];
+        int templ = INT_MAX;
+        int tempr = INT_MIN;
+        for (int i = 0; i < n; i++)
         {
-            continue;
+            scanf("%d", &a[i]);
         }
-        lv[dist[i] + 1].push_back(i);
-    }
-    for (int i = 0; i < nodes; i++)
-    {
-        if (source == i)
-            continue;
-        if (dist[i] == 0)
+        for (int i = 0; i < n; i++)
         {
-            cout << "no path" << endl;
-            continue;
+            if (a[i] != 0)
+            {
+                if (a[i] <= templ)
+                {
+                    templ = a[i];
+                    l[i] = templ;
+                    temposl = i;
+                    posl[i] = temposl;
+                }
+                else
+                {
+                    l[i] = templ;
+                    posl[i] = temposl;
+                }
+            }
+            else
+            {
+                l[i] = templ;
+                posl[i] = temposl;
+            }
         }
-        print_path(i, source);
-    }
-    for (int i = 1; i <= nodes; i++)
-    {
-        cout << i << ": ";
-        for (int j = 0; j < lv[i].size(); j++)
-            cout << lv[i][j] << ",";
-        cout << endl;
-    }
 
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (a[i] != 0)
+            {
+                if (a[i] >= tempr)
+                {
+                    tempr = a[i];
+                    r[i] = tempr;
+                    temposr = i;
+                    posr[i] = temposr;
+                }
+                else
+                {
+                    r[i] = tempr;
+                    posr[i] = temposr;
+                }
+            }
+            else
+            {
+                r[i] = tempr;
+                posr[i] = temposr;
+            }
+        }
+
+        for (int i = 0; i < m; i++)
+        {
+            int q;
+            scanf("%d", &q);
+            q = q - 1;
+            if (a[q] != 0)
+            {
+                printf("%d ", 0);
+            }
+            else
+            {
+                int left = l[q];
+                int right = r[q];
+                if (left == 1 && right == 2)
+                {
+                    printf("%d ", min(q - posl[q], posr[q] - q));
+                }
+                else if (left == 1 && right != 2)
+                {
+                    printf("%d ", (q - posl[q]));
+                }
+                else if (right == 2 && left != 1)
+                {
+                    printf("%d ", (posr[q] - q));
+                }
+                else
+
+                    printf("%d ", -1);
+            }
+        }
+        printf("\n");
+    }
     return 0;
 }
