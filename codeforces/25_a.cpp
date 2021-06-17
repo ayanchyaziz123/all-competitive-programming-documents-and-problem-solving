@@ -11,32 +11,33 @@ int main()
     int n;
     cin >> n;
     int arr[n + 1];
+    int even = 0;
+    int odd = 0;
+    int even_pos = 0;
+    int odd_pos = 0; 
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
-    }
-    sort(arr, arr + n);
-    int cnt = 1;
-    int pill = 1;
-    int hp = 1;
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] != arr[i - 1])
+        if (arr[i] % 2 == 0)
         {
-            cnt++;
-            pill = 1;
+            even++;
+            even_pos = i + 1;
         }
-        if (arr[i] == arr[i - 1])
+        else
         {
-            pill++;
-            if (pill > hp)
-            {
-                hp = pill;
-            }
+            odd++;
+            odd_pos = i + 1;
         }
     }
 
-    cout << hp << " " << cnt << endl;
+    if (even > odd)
+    {
+        cout << odd_pos << endl;
+    }
+    else
+    {
+        cout << even_pos << endl;
+    }
 
     return 0;
 }
