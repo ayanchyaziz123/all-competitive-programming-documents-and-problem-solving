@@ -12,15 +12,16 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        ll x1, x2, y1, y2, z1, z2;
-        cin >> x1 >> x2 >> y1 >> y2 >> z1 >> z2;
-        if (x1 <= x2 && y1 <= y2 && z1 == z2)
+        ll a, b;
+        cin >> a >> b;
+
+        if ((b & (b - 1)) == 0)
         {
-            cout << "YES" << endl;
+            cout << "Yes" << endl;
         }
         else
         {
-            cout << "NO" << endl;
+            cout << "No" << endl;
         }
     }
 

@@ -12,17 +12,18 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        ll x1, x2, y1, y2, z1, z2;
-        cin >> x1 >> x2 >> y1 >> y2 >> z1 >> z2;
-        if (x1 <= x2 && y1 <= y2 && z1 == z2)
+        ll x, y;
+        cin >> x >> y;
+        string arr;
+        for(ll i = 0; i < x; i++)
         {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
+            cin >> arr
         }
     }
+    
+
+
+
 
     return 0;
 }

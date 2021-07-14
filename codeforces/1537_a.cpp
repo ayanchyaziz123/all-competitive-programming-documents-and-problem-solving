@@ -12,15 +12,24 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        ll x1, x2, y1, y2, z1, z2;
-        cin >> x1 >> x2 >> y1 >> y2 >> z1 >> z2;
-        if (x1 <= x2 && y1 <= y2 && z1 == z2)
+        ll n;
+        cin >> n;
+        ll arr[n + 1];
+        ll sum = 0;
+        for (ll i = 0; i < n; i++)
         {
-            cout << "YES" << endl;
+            cin >> arr[i];
+            sum += arr[i];
+        }
+
+
+        if (sum >= n && sum > 0)
+        {
+            cout << sum - n << endl;
         }
         else
         {
-            cout << "NO" << endl;
+            cout << 1 << endl;
         }
     }
 

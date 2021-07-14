@@ -12,15 +12,20 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        ll x1, x2, y1, y2, z1, z2;
-        cin >> x1 >> x2 >> y1 >> y2 >> z1 >> z2;
-        if (x1 <= x2 && y1 <= y2 && z1 == z2)
+        string st;
+        cin >> st;
+        if (st[0] == '1')
         {
-            cout << "YES" << endl;
+            cout << 1 << 0;
+            for (ll i = 1; i < st.size(); i++)
+            {
+                cout << st[i];
+            }
+            cout << endl;
         }
         else
         {
-            cout << "NO" << endl;
+            cout << 1 << st << endl;
         }
     }
 
