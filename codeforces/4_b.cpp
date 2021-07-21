@@ -26,30 +26,51 @@ int main()
     {
         cout << "NO" << endl;
     }
-    
+
     else
     {
+        int cc = 0;
         cout << "YES" << endl;
+        vector<int> vc;
         for (int i = 0; i < d; i++)
         {
+            vc.push_back(arr[i]);
+            //cout << vc[i] << " ";
+            cc += arr[i];
+        }
 
-            int ans = 0;
-            int j = arr[i];
-            while (j <= arr2[i] && j <= t && 1 < totalTime)
+        int j = 0;
+        int sz = vc.size();
+        mx -= cc;
+        totalTime -= cc;
+
+        for (int i = 0; i < d; i++)
+        {
+            while (arr2[i] != vc[j] && j < sz)
             {
-                ans = j;
-                j++;
-                totalTime--;
-                if (totalTime == 0)
+                if (((vc[j] + 1) <= arr2[i]) && ((mx) != 0) && totalTime != 0)
+                {
+                    vc[j]++;
+                    mx--;
+                    totalTime--;
+                }
+                else
                 {
                     break;
                 }
             }
-            sum += ans;
-            cout << ans << " ";
+
+            if (totalTime <= 0)
+            {
+                break;
+            }
+            j++;
         }
-        cout << endl;
-        cout << sum;
+
+        for (int i = 0; i < vc.size(); i++)
+        {
+            cout << vc[i] << " ";
+        }
     }
 
     return 0;

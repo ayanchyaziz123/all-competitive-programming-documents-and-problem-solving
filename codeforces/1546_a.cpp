@@ -40,7 +40,7 @@ int main()
                 arr[i] = arr[i] - 1;
                 for (ll k = 0; k < n; k++)
                 {
-                    sum1 += arr[i];
+                    sum1 += arr[i];1
                 }
                 for (ll j = 0; j < n; j++)
                 {
