@@ -10,17 +10,30 @@ int main()
 #endif
     string st;
     cin >> st;
-    map<char, ll>mp;
-    for(ll i = 0; i < st.size(); i++)
+    map<char, ll> mp;
+    for (ll i = 0; i < st.size(); i++)
     {
         mp[st[i]]++;
     }
-    while(true)
+    ll odd = 0;
+    for (auto x : mp)
     {
-        
-
-
-
+        if (x.second % 2 != 0)
+        {
+            odd++;
+        }
+    }
+    if(odd == 0)
+    {
+        cout << "First" << endl;
+    }
+    else if (odd % 2 == 0)
+    {
+        cout << "Second" << endl;
+    }
+    else
+    {
+        cout << "First" << endl;
     }
     return 0;
 }
