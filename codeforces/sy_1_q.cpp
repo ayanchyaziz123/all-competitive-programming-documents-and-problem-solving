@@ -4,6 +4,7 @@
 using namespace std;
 #define dbg(x) cout << #x << " = " << x << ln
 // Ayan's Code
+
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -13,6 +14,7 @@ int main()
     ll t;
     cin >> t;
     deque<ll> q;
+    bool flag = false;
     while (t--)
     {
         string st;
@@ -21,7 +23,14 @@ int main()
         {
             ll x;
             cin >> x;
-            q.push_front(x);
+            if (!flag)
+            {
+                q.push_front(x);
+            }
+            else
+            {
+                q.push_back(x);
+            }
         }
         else if (st == "front")
         {
@@ -30,9 +39,18 @@ int main()
                 cout << "No job for Ada?" << endl;
                 continue;
             }
-            ll x = q.front();
-            cout << x << endl;
-            q.pop_front();
+            if (flag)
+            {
+                ll x = q.back();
+                cout << x << endl;
+                q.pop_back();
+            }
+            else
+            {
+                ll x = q.front();
+                cout << x << endl;
+                q.pop_front();
+            }
         }
         else if (st == "back")
         {
@@ -41,19 +59,39 @@ int main()
                 cout << "No job for Ada?" << endl;
                 continue;
             }
-            ll x = q.back();
-            cout << x << endl;
-            q.pop_back();
+            if (flag)
+            {
+                cout << q.front() << endl;
+                q.pop_front();
+            }
+            else
+            {
+                cout << q.back() << endl;
+                q.pop_back();
+            }
         }
         else if (st == "push_back")
         {
             ll x;
             cin >> x;
-            q.push_back(x);
+            if (!flag)
+            {
+                q.push_back(x);
+            }
+            else
+            {
+                q.push_front(x);
+            }
         }
         else if (st == "reverse")
         {
-            reverse(q.begin(), q.end());
+
+            if (flag)
+            {
+                flag = false;
+            }
+            else if (!flag)
+                flag = true;
         }
         else
         {

@@ -13,14 +13,16 @@ int main()
 
     ll n;
     cin >> n;
-    if ((n & (n - 1)) == 0)
+    ll cnt = 0;
+    while (n)
     {
-        cout << 1 << endl;
+        if (n & 1)
+        {
+            cnt++;
+        }
+        n = n >> 1;
     }
-    else
-    {
-        cout << 2 << endl;
-    }
+    cout << cnt << endl;
 
     return 0;
 }

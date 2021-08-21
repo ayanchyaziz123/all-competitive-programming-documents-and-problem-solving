@@ -12,37 +12,30 @@ int main()
 #endif
     string st;
     cin >> st;
-    bool flag = true;
-    bool flag2 = false;
-    for (ll i = 0; i < st.size(); ++i)
+    stack<char> s;
+    ll len = st.size();
+    for (ll i = len - 1; i >= 0; i--)
     {
-        for (ll j = 0; j < st.size(); ++j)
+        if (s.empty())
         {
-
-            if (i != j && st[i] == st[j])
+            s.push(st[i]);
+        }
+        else
+        {
+            if (s.top() == st[i])
             {
-                flag = false;
-                break;
+                s.pop();
             }
             else
             {
-                flag = true;
+                s.push(st[i]);
             }
         }
-        if (flag)
-        {
-            flag2 = true;
-            cout << st[i];
-        }
     }
-    cout << endl;
-
-    if (!flag2)
+    while (!s.empty())
     {
-        ll n = st.size() - 1;
-        cout << st[n] << endl;
+        cout << s.top();
+        s.pop();
     }
-    cout << endl;
-
     return 0;
 }

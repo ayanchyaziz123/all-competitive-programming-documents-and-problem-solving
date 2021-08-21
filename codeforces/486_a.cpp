@@ -1,22 +1,26 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#define ll long long int
+#define INF 2e18
 using namespace std;
-
-
+#define dbg(x) cout << #x << " = " << x << ln
+// Ayan's Code
 int main()
 {
-    int n;
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+    ll n;
     cin >> n;
-    int sum = 0;
-    for(int i = 0; i <= n; i++){
-        if(i%2!=0){
-            sum -= i; 
-
-        }
-        else{
-            sum += i;
-        }
+    ll ans = 0;
+    if (n % 2 == 0)
+    {
+        ll x = n / 2;
+        cout << x << endl;
     }
-    cout << sum <<endl;
-
+    else
+    {
+        cout << -((n / 2) + 1) << endl;
+    }
     return 0;
 }
